@@ -9,7 +9,6 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
-  "homepage": "https://m1k3lre2.github.io/mikerettew.design",
   "dependencies": {
     "react": "^18.0.0",
     "react-dom": "^18.0.0",
