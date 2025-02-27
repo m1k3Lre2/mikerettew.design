@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mike Rettew - Portfolio</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 0; padding: 0; background-color: #ffffff; color: #333; text-align: center; }
+        .container { max-width: 800px; margin: 50px auto; padding: 20px; }
+        .project { margin: 20px 0; padding: 10px; border: 1px solid #ddd; border-radius: 5px; background-color: #f9f9f9; }
+        img { width: 100%; max-width: 300px; border-radius: 10px; display: block; margin: 0 auto; }
+        .contact-icons { margin-top: 20px; }
+        .contact-icons a { margin: 0 10px; text-decoration: none; font-size: 24px; display: inline-block; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Mike Rettew</h1>
+        <p>Product Designer | UI/UX Specialist</p>
+        <hr>
+        
+        <div id="projects"></div>
+        
+        <div class="contact-icons">
+            <a href="mailto:someone@example.com" target="_blank" aria-label="Email">📧</a>
+            <a href="https://github.com/yourusername" target="_blank" aria-label="GitHub">🐙</a>
+            <a href="https://linkedin.com/in/yourusername" target="_blank" aria-label="LinkedIn">🔗</a>
+        </div>
+    </div>
+    
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            const projects = [
+                { title: "Project One", description: "A modern web design.", image: "https://via.placeholder.com/300" },
+                { title: "Project Two", description: "A sleek mobile UI.", image: "https://via.placeholder.com/300" },
+                { title: "Project Three", description: "An intuitive dashboard.", image: "https://via.placeholder.com/300" },
+                { title: "Project Four", description: "A cutting-edge SaaS platform.", image: "https://via.placeholder.com/300" },
+                { title: "Project Five", description: "A creative e-commerce experience.", image: "https://via.placeholder.com/300" },
+                { title: "Project Six", description: "A smooth fintech application.", image: "https://via.placeholder.com/300" }
+            ];
+            
+            const projectsContainer = document.getElementById('projects');
+            const fragment = document.createDocumentFragment();
+            
+            projects.forEach(project => {
+                const projectDiv = document.createElement('div');
+                projectDiv.classList.add('project');
+                projectDiv.innerHTML = `
+                    <h2>${project.title}</h2>
+                    <img src="${project.image}" alt="${project.title}">
+                    <p>${project.description}</p>
+                `;
+                fragment.appendChild(projectDiv);
+            });
+            
+            projectsContainer.appendChild(fragment);
+        });
+    </script>
+</body>
+</html>
