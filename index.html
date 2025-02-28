@@ -19,20 +19,30 @@
         .container {
             max-width: 1000px;
             margin: 50px auto;
-            padding: 20px;
+            padding: 10px;
             text-align: left;
+        }
+        .header {
+            display: flex;
+            justify-content: flex-start;
+            align-items: center;
         }
         h1 {
-            font-size: 4rem;
+            font-size: 6rem;
             color: #4caf50;
-            text-align: left;
-            margin: 20px 0;
+            margin: -50px 0; /* Reduced margin to match spacing above the subtitle */
         }
-        p.subtitle {
+        .subtitle {
             font-size: 1.5rem;
-            color: #FFFFFF;
+            color: white;
             font-style: italic;
-            text-align: left;
+            text-align: right;
+            margin-top: -10px;
+        }
+        hr {
+            border: 0;
+            border-top: 1px solid #424242; /* Light grey color similar to project card boxes */
+            margin: 10px 0;
         }
         .project {
             height: 200px;
@@ -84,9 +94,11 @@
 </head>
 <body>
     <div class="container">
-        <h1>MIKE RETTEW</h1>
-        <p class="subtitle">passionate. empathetic. creative. problem solver.</p>
+        <div class="header">
+            <h1>MIKE RETTEW</h1>
+        </div>
         <hr>
+        <p class="subtitle">passionate. empathetic. creative. problem solver.</p>
         <div id="projects"></div>
         <div class="contact-icons">
             <a href="mailto:mjrettew@gmail.com" target="_blank" aria-label="Email"><span class="material-icons">email</span></a>
@@ -131,3 +143,4 @@
     </script>
 </body>
 </html>
+
