@@ -35,30 +35,27 @@
             text-align: left;
         }
         .project {
+            height: 200px;
             margin: 40px auto;
             padding: 20px;
             border-radius: 12px;
             background: #424242;
             border: 0.5px solid #4caf50;
-            transition: transform 0.3s ease, box-shadow 0.3s ease, height 0.3s ease;
+            transition: height 0.3s ease, box-shadow 0.3s ease;
             width: 90%;
             opacity: 0;
-            transform: translateY(50px) rotate(-3deg);
+            transform: translateY(50px);
             transition: all 0.6s ease-in-out;
             position: relative;
             overflow: hidden;
-            cursor: pointer;
-            height: auto;
         }
         .project.visible {
             opacity: 1;
-            transform: translateY(0) rotate(0);
+            transform: translateY(0);
         }
         .project:hover {
-            transform: scale(1.08) rotate(2deg);
-        }
-        .project.expanded {
             height: 400px;
+            transform: scale(1.08);
         }
         img {
             width: 100%;
@@ -116,9 +113,6 @@
                     <img src="${project.image}" alt="${project.title}">
                     <p>${project.description}</p>
                 `;
-                projectDiv.addEventListener('click', () => {
-                    projectDiv.classList.toggle('expanded');
-                });
                 projectsContainer.appendChild(projectDiv);
             });
             
