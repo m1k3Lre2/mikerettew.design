@@ -6,92 +6,105 @@
     <title>Mike Rettew - Portfolio</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <style>
         body {
             font-family: 'Poppins', sans-serif;
             margin: 0;
             padding: 0;
-            background-color: #f4f4f4;
-            color: #333;
+            background-color: #212121;
+            color: #fff;
             text-align: center;
         }
         .container {
-            max-width: 900px;
+            max-width: 1000px;
             margin: 50px auto;
             padding: 20px;
+            text-align: left;
         }
         h1 {
-            font-size: 3rem;
-            color: #2a9d8f;
-            margin-bottom: 0;
+            font-size: 4rem;
+            color: #4caf50;
+            text-align: left;
+            margin: 20px 0;
         }
         p.subtitle {
-            font-size: 1.2rem;
-            color: #555;
+            font-size: 1.5rem;
+            color: #388e3c;
             font-style: italic;
+            text-align: left;
         }
         .project {
-            margin: 20px auto;
-            padding: 15px;
-            border-radius: 10px;
-            background: #fff;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-            width: 80%;
+            margin: 40px auto;
+            padding: 20px;
+            border-radius: 12px;
+            background: #424242;
+            border: 0.5px solid #4caf50;
+            transition: transform 0.3s ease, box-shadow 0.3s ease, height 0.3s ease;
+            width: 90%;
             opacity: 0;
-            transform: translateY(50px);
+            transform: translateY(50px) rotate(-3deg);
             transition: all 0.6s ease-in-out;
+            position: relative;
+            overflow: hidden;
+            cursor: pointer;
+            height: auto;
         }
         .project.visible {
             opacity: 1;
-            transform: translateY(0);
+            transform: translateY(0) rotate(0);
         }
         .project:hover {
-            transform: scale(1.05);
-            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+            transform: scale(1.08) rotate(2deg);
+        }
+        .project.expanded {
+            height: 400px;
         }
         img {
             width: 100%;
-            max-width: 350px;
+            max-width: 400px;
             border-radius: 10px;
             display: block;
             margin: 0 auto;
         }
         .contact-icons {
-            margin-top: 20px;
+            margin-top: 40px;
+            text-align: left;
         }
         .contact-icons a {
             margin: 0 15px;
             text-decoration: none;
-            font-size: 30px;
+            font-size: 40px;
             display: inline-block;
+            color: #4caf50;
             transition: transform 0.2s ease-in-out;
         }
         .contact-icons a:hover {
-            transform: scale(1.2);
+            transform: scale(1.4) rotate(-10deg);
+            color: #388e3c;
         }
     </style>
 </head>
 <body>
     <div class="container">
         <h1>MIKE RETTEW</h1>
-        <p class="subtitle">Building seamless user experiences, one pixel at a time.</p>
+        <p class="subtitle">passionate. empathetic. creative. problem solver.</p>
         <hr>
         <div id="projects"></div>
         <div class="contact-icons">
-            <a href="mailto:mjrettew@gmail.com" target="_blank" aria-label="Email">📧</a>
-            <a href="https://www.linkedin.com/in/mike-rettew-2b517b24" target="_blank" aria-label="LinkedIn">🔗</a>
+            <a href="mailto:mjrettew@gmail.com" target="_blank" aria-label="Email"><span class="material-icons">email</span></a>
+            <a href="https://www.linkedin.com/in/mike-rettew-2b517b24" target="_blank" aria-label="LinkedIn"><span class="material-icons">link</span></a>
         </div>
     </div>
     <script>
         document.addEventListener("DOMContentLoaded", () => {
             const projects = [
-                { title: "Project One", description: "A modern web design.", image: "https://via.placeholder.com/300" },
-                { title: "Project Two", description: "A sleek mobile UI.", image: "https://via.placeholder.com/300" },
-                { title: "Project Three", description: "An intuitive dashboard.", image: "https://via.placeholder.com/300" },
-                { title: "Project Four", description: "A cutting-edge SaaS platform.", image: "https://via.placeholder.com/300" },
-                { title: "Project Five", description: "A creative e-commerce experience.", image: "https://via.placeholder.com/300" },
-                { title: "Project Six", description: "A smooth fintech application.", image: "https://via.placeholder.com/300" }
+                { title: "Project One", description: "A modern web design.", image: "https://via.placeholder.com/400" },
+                { title: "Project Two", description: "A sleek mobile UI.", image: "https://via.placeholder.com/400" },
+                { title: "Project Three", description: "An intuitive dashboard.", image: "https://via.placeholder.com/400" },
+                { title: "Project Four", description: "A cutting-edge SaaS platform.", image: "https://via.placeholder.com/400" },
+                { title: "Project Five", description: "A creative e-commerce experience.", image: "https://via.placeholder.com/400" },
+                { title: "Project Six", description: "A smooth fintech application.", image: "https://via.placeholder.com/400" }
             ];
             
             const projectsContainer = document.getElementById('projects');
@@ -103,6 +116,9 @@
                     <img src="${project.image}" alt="${project.title}">
                     <p>${project.description}</p>
                 `;
+                projectDiv.addEventListener('click', () => {
+                    projectDiv.classList.toggle('expanded');
+                });
                 projectsContainer.appendChild(projectDiv);
             });
             
