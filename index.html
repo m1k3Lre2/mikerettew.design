@@ -24,16 +24,16 @@
         }
         .header {
             display: flex;
-            justify-content: flex-start;
+            justify-content: space-between;
             align-items: center;
         }
         h1 {
             font-size: 6rem;
             color: #4caf50;
-            margin: -50px 0; /* Reduced margin to match spacing above the subtitle */
+            margin: -50px 0;
         }
         .subtitle {
-            font-size: 1.5rem;
+            font-size: 1.3rem;
             color: white;
             font-style: italic;
             text-align: right;
@@ -41,7 +41,7 @@
         }
         hr {
             border: 0;
-            border-top: 1px solid #424242; /* Light grey color similar to project card boxes */
+            border-top: 1px solid #424242;
             margin: 10px 0;
         }
         .project {
@@ -76,19 +76,62 @@
         }
         .contact-icons {
             margin-top: 40px;
-            text-align: left;
+            display: flex;
+            align-items: center;
         }
         .contact-icons a {
             margin: 0 15px;
             text-decoration: none;
             font-size: 40px;
-            display: inline-block;
-            color: #4caf50;
+            color: #fff;
             transition: transform 0.2s ease-in-out;
         }
         .contact-icons a:hover {
             transform: scale(1.4) rotate(-10deg);
             color: #388e3c;
+        }
+
+        /* Media Queries for responsiveness */
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 4rem;
+            }
+
+            .subtitle {
+                font-size: 1.2rem;
+                text-align: center;
+            }
+
+            .project {
+                height: auto;
+                width: 95%;
+            }
+
+            .contact-icons a {
+                font-size: 30px;
+                margin: 0 10px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            h1 {
+                font-size: 3rem;
+            }
+
+            .subtitle {
+                font-size: 1rem;
+                margin-top: 0;
+            }
+
+            .project {
+                height: auto;
+                width: 100%;
+                padding: 15px;
+            }
+
+            .contact-icons a {
+                font-size: 25px;
+            }
         }
     </style>
 </head>
@@ -96,14 +139,17 @@
     <div class="container">
         <div class="header">
             <h1>MIKE RETTEW</h1>
+            <div class="contact-icons">
+                <a href="mailto:mjrettew@gmail.com" target="_blank" aria-label="Email"><span class="material-icons">email</span></a>
+                <!-- LinkedIn Icon using Image -->
+                <a href="https://www.linkedin.com/in/mike-rettew-2b517b24" target="_blank" aria-label="LinkedIn">
+                    <img src="https://github.com/m1k3Lre2/mikerettew.design/blob/main/linkedin-logo-thin-svgrepo-com.svg?raw=true" alt="LinkedIn" width="40" height="40">
+                </a>
+            </div>
         </div>
         <hr>
         <p class="subtitle">passionate. empathetic. creative. problem solver.</p>
         <div id="projects"></div>
-        <div class="contact-icons">
-            <a href="mailto:mjrettew@gmail.com" target="_blank" aria-label="Email"><span class="material-icons">email</span></a>
-            <a href="https://www.linkedin.com/in/mike-rettew-2b517b24" target="_blank" aria-label="LinkedIn"><span class="material-icons">link</span></a>
-        </div>
     </div>
     <script>
         document.addEventListener("DOMContentLoaded", () => {
@@ -120,7 +166,7 @@
             projects.forEach(project => {
                 const projectDiv = document.createElement('div');
                 projectDiv.classList.add('project');
-                projectDiv.innerHTML = `
+                projectDiv.innerHTML = ` 
                     <h2>${project.title}</h2>
                     <img src="${project.image}" alt="${project.title}">
                     <p>${project.description}</p>
@@ -143,4 +189,3 @@
     </script>
 </body>
 </html>
-
