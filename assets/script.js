@@ -10,10 +10,9 @@ document.addEventListener("DOMContentLoaded", () => {
             projectDiv.classList.add('expanded');
         }
 
-       projectDiv.innerHTML = ` 
-                    <div class="image-container">
-                        <img src="https://raw.githubusercontent.com/m1k3Lre2/mikerettew.design/main/assets/images/thryvpay01.png" alt="Project Image" alt="Project ${i + 1} Image">
-                    </div>
+        projectDiv.innerHTML = ` 
+            <h2>Project ${i + 1}</h2>
+            <p>A sample project showcasing my work.</p>
         `;
         projectsContainer.appendChild(projectDiv);
 
