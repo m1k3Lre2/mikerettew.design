@@ -13,6 +13,9 @@ document.addEventListener("DOMContentLoaded", () => {
         projectDiv.innerHTML = ` 
             <h2>Project ${i + 1}</h2>
             <p>A sample project showcasing my work.</p>
+            <div class="image-container">
+                        <img src="https://via.placeholder.com/400" alt="Project ${i + 1} Image">
+            </div>
         `;
         projectsContainer.appendChild(projectDiv);
 
